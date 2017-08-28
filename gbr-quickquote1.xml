@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<form url="gbr-quickquote1.php"
+ window="_self"
+ method="POST"
+ fontname="MS Sans Serif"
+ width="300"
+ height="395"
+ bkcolor="0x99CCFF"
+ transparent="f"
+ fontcolor="0x000000"
+ outlinecolor="0x333399"
+ themecolor="0x99CCFF"
+ fontcolor2="#000000"
+ bkcolor2="#FFFFFF"
+ includeresults="false"
+ emailuser="true"
+ verifymessage="The e-mail address you entered does not match!"
+ reqmessage="One or more fields are required."
+ invalidemailmsg="does not appear to be a valid e-mail address. Would you like to change it?"
+ transition="4"
+ autoresponseincluderesults="t"
+ autoresponseaddtotop="t"
+ usephp="true"
+disableclicktoactiveprompt="false"
+ extensions="*.txt;*.gif;*.jpg;*.jpeg;*.zip;*.doc;*.png;*.pdf;*.rtf;*.html;*.docx;*.xslx"
+>
+
+<hidden
+ name="thankyoupage"
+ value="http://www.gbrmoving.com/quote_confirm1.htm"
+></hidden>
+
+<hidden
+ name="subject"
+ value=""
+></hidden>
+
+<textinput
+ name="NAME"
+ x="19"
+ y="18"
+ w="248"
+ h="22"
+ initvalue=""
+ maxchars="40"
+ bkcolor="0xFFFFFF"
+  fontname="Arial"
+  fontcolor="0x000000"
+ editable="true"
+>
+</textinput>
+
+<textinput
+ name="PHONE"
+ x="19"
+ y="57"
+ w="247"
+ h="22"
+ initvalue=""
+ maxchars="40"
+ bkcolor="0xFFFFFF"
+  fontname="Arial"
+  fontcolor="0x000000"
+ editable="true"
+>
+</textinput>
+
+<textinput
+ name="EMAIL"
+ x="19"
+ y="96"
+ w="247"
+ h="22"
+ initvalue=""
+ maxchars="40"
+ bkcolor="0xFFFFFF"
+  fontname="Arial"
+  fontcolor="0x000000"
+ emailbox="true"
+ editable="true"
+  restrict="email"
+>
+</textinput>
+
+<textinput
+ name="MOVEDATE"
+ x="19"
+ y="137"
+ w="248"
+ h="22"
+ initvalue=""
+ maxchars="40"
+ bkcolor="0xFFFFFF"
+  fontname="Arial"
+  fontcolor="0x000000"
+ editable="true"
+>
+</textinput>
+
+<textinput
+ name="FROMCITY"
+ x="19"
+ y="177"
+ w="248"
+ h="22"
+ initvalue=""
+ maxchars="40"
+ bkcolor="0xFFFFFF"
+  fontname="Arial"
+  fontcolor="0x000000"
+ editable="true"
+>
+</textinput>
+
+<textinput
+ name="TOCITY"
+ x="19"
+ y="218"
+ w="248"
+ h="22"
+ initvalue=""
+ maxchars="40"
+ bkcolor="0xFFFFFF"
+  fontname="Arial"
+  fontcolor="0x000000"
+ editable="true"
+>
+</textinput>
+
+<textinput
+ name="SIZE"
+ x="19"
+ y="259"
+ w="248"
+ h="22"
+ initvalue="Condo, Townhome, Home, Apartment?"
+ maxchars="40"
+ bkcolor="0xFFFFFF"
+  fontname="Arial"
+  fontcolor="0x000000"
+ editable="true"
+>
+</textinput>
+
+<textarea
+ name="COMMENTS"
+ x="19"
+ y="301"
+ w="247"
+ h="63"
+ initvalue=""
+ wordwrap="true"
+ editable="true"
+ bkcolor="0xFFFFFF"
+  fontsize="12"
+  fontname="Arial"
+  fontcolor="0x000000"
+></textarea>
+
+<submitbutton
+ name="Submit Button"
+ x="35"
+ y="368"
+ w="100"
+ h="24"
+ label="SUBMIT"
+ fontname="Arial"
+ fontcolor="0x000000"
+ fontbold="bold"
+  fontsize="12"
+></submitbutton>
+
+<label
+ name="My Text 1"
+ x="19"
+ y="2"
+ w="38"
+ h="14"
+ text="Name:"
+ fontbold="bold"
+  fontname="Arial"
+  fontcolor="0x0000FF"
+  fontsize="11"
+></label>
+
+<label
+ name="My Text 2"
+ x="19"
+ y="41"
+ w="42"
+ h="14"
+ text="Phone:"
+ fontbold="bold"
+  fontname="Arial"
+  fontcolor="0x0000FF"
+  fontsize="11"
+></label>
+
+<label
+ name="My Text 3"
+ x="19"
+ y="121"
+ w="110"
+ h="14"
+ text="Desired Move Date:"
+ fontbold="bold"
+  fontname="Arial"
+  fontcolor="0x0000FF"
+  fontsize="11"
+></label>
+
+<label
+ name="My Text 4"
+ x="19"
+ y="80"
+ w="36"
+ h="14"
+ text="Email:"
+ fontbold="bold"
+  fontname="Arial"
+  fontcolor="0x0000FF"
+  fontsize="11"
+></label>
+
+<label
+ name="My Text 5"
+ x="19"
+ y="161"
+ w="101"
+ h="14"
+ text="Moving from City:"
+ fontbold="bold"
+  fontname="Arial"
+  fontcolor="0x0000FF"
+  fontsize="11"
+></label>
+
+<label
+ name="My Text 6"
+ x="20"
+ y="202"
+ w="85"
+ h="14"
+ text="Moving to City:"
+ fontbold="bold"
+  fontname="Arial"
+  fontcolor="0x0000FF"
+  fontsize="11"
+></label>
+
+<label
+ name="My Text 7"
+ x="18"
+ y="243"
+ w="124"
+ h="14"
+ text="How Many Bedrooms:"
+ fontbold="bold"
+  fontname="Arial"
+  fontcolor="0x0000FF"
+  fontsize="11"
+></label>
+
+<label
+ name="My Text 8"
+ x="19"
+ y="284"
+ w="70"
+ h="14"
+ text="COMMENTS:"
+ fontbold="bold"
+  fontname="Arial"
+  fontcolor="0x0000FF"
+  fontsize="11"
+></label>
+
+</form>

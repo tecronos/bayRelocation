@@ -1,0 +1,968 @@
+<?
+
+if($_POST['full_name']){
+$quote = "
+
+1) Basic Information
+	Full Name: ".$_POST['full_name']."
+	Email: ".$_POST['email']."
+	Phone number(s): ".$_POST['phone']."
+	Referred by: ".$_POST['refered_by']."
+	Preferred moving date: ".$_POST['moving_date_1']."
+	Alternate moving date: ".$_POST['moving_date_2']."
+	Moving out of : ".$_POST['moving_from']."
+	Moving into : ".$_POST['moving_to']."
+
+2) Exact Origin and Destination addresses
+	Origin: ".$_POST['origin']."
+	Destination: ".$_POST['destintion']."
+	Any additional pick-up's or drop-off's: ".$_POST['drop-off']."
+	
+	3) Information about Origin and Destination addresses
+	At ORIGIN
+	Approximate square footage: ".$_POST['or_square_footge']."
+	Number of flights from parked truck to front door: ".$_POST['or_flights']."
+	Any interior flights within your residence: ".$_POST['or_interior_flights']."
+	Elevator access: ".$_POST['or_elevetor_access']."
+	Exclusive: ".$_POST['or_exclusive']."
+	Size of elevator cab (sm; md; lg): ".$_POST['or_elevetor_size']."
+	Any long walks (long carries), to navigate from parked truck to front door of your residence: ".$_POST['or_long_walks']."
+	Where do trucks normally park:  ".$_POST['or_truck_park']."
+
+At DESTINATION
+	Approximate square footage: ".$_POST['dest_square_footge']."
+	Number of flights from parked truck to front door: ".$_POST['dest_flights']."
+	Any interior flights within your residence: ".$_POST['dest_interior_flights']."
+	Elevator access: ".$_POST['dest_elevetor_access']."
+	Exclusive: ".$_POST['dest_exclusive']."
+	Size of elevator cab (sm; md; lg): ".$_POST['dest_elevetor_size']."
+	Any long walks (long carries), to navigate from parked truck to front door of your residence: ".$_POST['dest_long_walks']."
+	Where do trucks normally park:  ".$_POST['dest_truck_park']."
+
+
+4) Items to be moved
+	All furniture goes? ".$_POST['all_goes']."
+	Please explain: ".$_POST['all_goes_explain']."
+	Boxes: ".$_POST['boxes']."
+	Are we moving your hanging clothes: ".$_POST['move_hanging']."
+	Will you need more than 10 wardrobes (garment boxes): ".$_POST['wardrobes']."
+	Are we moving smaller misc items : ".$_POST['misc']."
+	Are we moving items from garage: ".$_POST['from_garage']."
+	Are we moving items from back yard: ".$_POST['back_yard']."
+	Any other comments:  ".$_POST['other_comments']."
+
+5) Please include additional info you may consider important to your move
+	Do you need packing services: ".$_POST['packing']."
+	All household goods or just packing service for breakables only: ".$_POST['breakables']."
+	Any difficult or cumbersome items being moved : ".$_POST['cumbersome']."
+	Did you experience any problems at your current residence during the move-in process: ".$_POST['problems']."
+	Any hoisting maneuvers required: ".$_POST['hoisting']."
+	Certificates of insurance requested in behalf of your HOA's: ".$_POST['hoa']."
+	Will you be in Escrow shortly before your scheduled move date: ".$_POST['escrow']."
+	Will contractors be doing any major work at destination prior to your move date: ".$_POST['contractors']."
+	Are we unloading a rental truck: ".$_POST['rental_truck']."
+	What size is the truck: ".$_POST['truck_size']."
+	The contents in the truck being unloaded are equivalent to what type/size of residence: ".$_POST['residence_size']."
+	If moving into or out of storage, is your unit a drive-up ground level unit: ".$_POST['ground_level']."
+	What is the size of the storage: ".$_POST['stotage_size']."
+	Any additional info you may consider important: ".$_POST['additional_info']."
+
+";
+
+//echo $quote;
+$mailto ="vanessa@goldenbayrelocation.com";
+//$mailto ="hello@davidterrymarketing.com";
+
+mail($mailto,"New Quote Request",$quote, "From: ".$_POST['email']."\r\n"."X-Mailer: Content Manager - PHP/".phpversion());
+
+
+
+mail($mailto,"New Quick Quoter Request",$quote, "From: ".$_POST['email']."\r\n"."X-Mailer: Content Manager - PHP/".phpversion());
+
+$thank_text = "To Our Valued Customer,
+
+Thank you for your interest in Golden Bay Relocation! We are currently experiencing a high volume of emails and phone calls from prospective movers.  We will get back to you as soon as we can and appreciate your patience.
+We look forward to serving you and your family!
+
+Sincerely,
+
+Golden Bay Relocation
+ph: 415.668.9562
+Lic & Insured. BBB A+ Rated
+www.GoldenBayRelocation.com
+
+";
+mail($_POST['email'],"Thank you for your interest in Golden Bay Relocation!",$thank_text , "From:  info@gbrmoving.com\r\n"."X-Mailer: Content Manager - PHP/".phpversion());
+
+
+
+$form_submited ='1';
+}
+?>
+
+<!-- 
+full_name
+phone
+refered_by
+moving_date_1
+moving_date_2
+moving_from
+moving_to
+
+origin
+destintion
+drop-off
+
+or_square_footge
+or_flights
+or_interior_flights
+or_elevetor_access
+or_exclusive
+or_elevetor_size
+or_long_walks
+or_truck_park
+
+dest_square_footge
+dest_flights
+dest_interior_flights
+dest_elevetor_access
+dest_exclusive
+dest_elevetor_size
+dest_long_walks
+dest_truck_park
+
+all_goes
+all_goes_explain
+boxes
+move_hanging
+wardrobes
+misc
+from_garage
+back_yard
+other_comments
+
+packing
+breakables
+cumbersome
+problems
+hoisting
+hoa
+escrow
+contractors
+contractors
+rental_truck
+truck_size
+residence_size
+ground_level
+stotage_size
+additional_info -->
+
+<html>
+
+<head>
+
+<title>Local Residential Movers - San Francisco Bay Area Local Movers - Your Bay 
+
+Area Moving Company - Professional Moving Company San Francisco - Moving Bay 
+
+Area</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+<meta name="keywords" content="Local Residential Movers - San Francisco Bay Area Local Movers San Francisco, Your Bay Area Moving Company, Professional Moving Company San Francisco, Moving Bay Area">
+
+<meta name="description" content="Golden Bay Relocation Moving Services - Professional Moving Company in the Bay Area for 20 years... and counting.">
+
+<meta name="" content="Moving,Movers,StorageLockers,SanFrancisco,BayArea,Office,Residential.">
+
+<script type="text/javascript" src="js/jquery.js"></script>
+
+<script language="JavaScript">
+
+<!--
+
+
+function veryfy_quote(){
+var missing_field ='';
+$(".error").hide();
+
+if(!$("#full_name").val()){
+$("#error_full_name").show();
+missing_field ='1';
+}
+
+
+if(!$("#email").val()){
+$("#error_email").show();
+missing_field ='1';
+}
+else
+{
+
+var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+
+   var address = $("#email").val();
+   if(reg.test(address) == false) {
+	$('#error_valid_email').show();
+   missing_field ='1';
+   }
+   
+}
+
+
+if(!$("#phone").val()){
+$("#error_phone").show();
+missing_field ='1';
+}
+
+
+if(!$("#refered_by").val()){
+$("#error_refered_by").show();
+missing_field ='1';
+}
+
+if(!$("#moving_date_1").val()){
+$("#error_moving_date_1").show();
+missing_field ='1';
+}
+
+if(!$("#moving_date_2").val()){
+$("#error_moving_date_2").show();
+missing_field ='1';
+}
+
+if(!$("#moving_from").val()){
+$("#error_moving_from").show();
+missing_field ='1';
+}
+
+if(!$("#moving_to").val()){
+$("#error_moving_to").show();
+missing_field ='1';
+}
+
+
+if(!$("#origin").val()){
+$("#error_origin").show();
+missing_field ='1';
+}
+
+if(!$("#destintion").val()){
+$("#error_destintion").show();
+missing_field ='1';
+}
+
+if(!$("#drop-off").val()){
+$("#error_drop-off").show();
+missing_field ='1';
+}
+
+
+
+
+if(missing_field == "1"){
+$("#error_form_error").show();
+return false;
+}
+
+}
+
+
+function MM_swapImgRestore() { //v3.0
+
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+
+}
+
+
+
+function MM_preloadImages() { //v3.0
+
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+
+}
+
+function MM_findObj(n, d) { //v4.01
+
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+
+}
+
+
+
+function MM_swapImage() { //v3.0
+
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+
+}
+
+//-->
+
+</script>
+
+<style type="text/css">
+
+
+
+
+<!--
+
+span.apple-style-span {}
+
+.style1 {color: #474747}
+
+span.style3 {}
+
+.style2 {color: #4D4D4D}
+
+.style4 {
+
+	font-size: 12px;
+
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+
+	color: #6666CC;
+
+}
+
+.style5 {font-size: 10px}
+
+.style8 {
+
+	font-size: large;
+
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+
+	color: #6666CC;
+
+	font-weight: bold;
+
+}
+
+.style9 {font-family: Arial, Helvetica, sans-serif}
+
+.style10 {font-size: x-large}
+
+.style11 {color: #666666}
+
+
+.error { color:red; display:none; font-size:13px;}
+fieldset {
+
+font-family: Arial;
+}
+fieldset ul, fieldset li{
+border:0; margin:0; padding:0; list-style:none;
+}
+fieldset li{
+clear:both;
+list-style:none;
+padding-top:10px;
+}
+
+fieldset input{
+
+}
+fieldset label{
+padding-right:10px;
+float:left;
+}
+
+fieldset b{
+font-size:14px;
+}
+
+legend h1 {
+font-size:17px;
+
+}
+
+.legend-small {
+font-size:12px;
+font-weight:normal;
+}
+
+.small {
+clear:both;
+font-size:12px;
+
+
+}
+
+-->
+
+</style>
+
+<script type="text/javascript">
+
+
+
+  var _gaq = _gaq || [];
+
+  _gaq.push(['_setAccount', 'UA-25984641-1']);
+
+  _gaq.push(['_trackPageview']);
+
+
+
+  (function() {
+
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+
+  })();
+
+
+
+</script>
+
+</head>
+
+
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="4" marginwidth="0" marginheight="0" onLoad="MM_preloadImages('index_images/about_green_over.gif','index_images/tips_green_over.gif','index_images/rates_green_over.gif','index_images/reminders_green_over.gif','index_images/local_green_over.gif','index_images/prep_green_over.gif')">
+
+
+
+      <table width="640" border="0" cellspacing="0" cellpadding="0">
+
+      </table>
+
+   
+
+      <table width="640" border="0" align="center" cellpadding="0" cellspacing="0">
+
+        <tr>
+
+          <td><table width="640" border="0" cellspacing="0" cellpadding="0" align="center" bgcolor="#FFFFFF">
+
+
+
+            <tr>
+
+              <td><table width="640" border="0" cellspacing="0" cellpadding="0">
+
+                  <tr>
+
+                    <td valign="top" align="left">
+
+					<table border="2" cellpadding="0" cellspacing="0" style="border-collapse: collapse" width="100%" id="table2" bordercolor="#6666CC">
+
+						<tr>
+
+							<td valign="top" bgcolor="#625BC4">
+
+							<table border="0" style="border-collapse: collapse" width="100%" id="table4" cellpadding="0" height="35">
+
+								<tr>
+
+									<td>
+
+							<img border="0" src="images/header3.jpg" width="800" height="129"></td>
+
+								</tr>
+
+								<tr>
+
+									<td height="31" valign="bottom">
+
+							<p align="center">
+
+							<object classid="clsid:D27CDB6E-AE6D-11CF-96B8-444553540000" id="obj1" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,40,0" border="0" width="801" height="27">
+
+								<param name="movie" value="Flashnav1/gbr-horiznav1.swf">
+
+								<param name="quality" value="High">
+
+								<param name="bgcolor" value="#625bc4">
+
+								<embed src="Flashnav1/gbr-horiznav1.swf" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" name="obj1" width="801" height="27" quality="High" bgcolor="#625bc4"></object>
+
+									</td>
+
+								</tr>
+
+								<tr>
+
+									<td bgcolor="#FFFFFF">
+<? 
+//$form_submited ="1";
+
+if($form_submited){
+?>
+<div style="align:center;padding:55px 15px 155px 15px;font-family: Arial">
+
+<b>You Request has been submited.</b>
+<br /><br />
+We thank you for your time and effort invested so far. This will help us determine your overall moving needs, time frame and scope of the job. We will review the "particulars" of your move and reply within 24 hours with an estimate, rates, charges and specific info...so relax...you're in good hands. If you have any questions or concerns, please feel free to contact us at 415.668.9562. We're always here to help!
+<br /><br />
+<b>We've moved thousands of thousands of Bay Area Residents...now it's your turn!</b>
+<br /><br />
+<br />
+
+
+Golden Bay Relocation<br />
+movingquote@gbrmoving.com<br />
+1160 Mission Street, Unit 1914<br />
+San Francisco, Ca 94103<br />
+415.668.9562<br />
+Cal-T 189209<br />
+Fully Licensed & Insured<br />
+
+
+
+
+</div>
+
+<?
+}
+else
+{
+?>
+<div style="padding:15px 15px 15px 15px;font-family: Arial">
+We only provide local moves within the Bay Area. If your move is smaller than a one bedroom apartment, please 
+do not email this form, and email directly at vanessa@goldenbayrelocation.com
+<br/>
+<br/>
+
+Please answer all questions below, to the best of your ability, to enable us to better assist you with your moving cost and time frame needed. We appreciate your time & effort...we will have a response within 24 hours.
+<br />
+<br />
+							<table border="0" cellpadding="0" style="border-collapse: collapse" width="100%" id="table10">
+
+								<tr>
+
+
+
+									<td width="342">
+
+<form action="getquote_form.htm" method="post" name="quote-form" onsubmit="return veryfy_quote()" />
+
+<fieldset>
+<legend><h1>1) Basic Information</h1></legend>
+<ul>
+<li>
+<div class="error" id="error_full_name">Enter Full Name</div>
+<label>Full Name:</label> 
+<input type="text" name="full_name" id="full_name"  ></li>
+<li>
+<li>
+<div class="error" id="error_email">Enter Email</div>
+<div class="error" id="error_valid_email">Enter Valid Email</div>
+<label>Email:</label> 
+<input type="text" name="email" id="email"  ></li>
+<li>
+
+<div class="error" id="error_phone" >Enter Phone</div>
+<label>Phone number(s):</label>  <input type="text" name="phone" id="phone"  >
+</li>
+
+<li>
+<div class="error" id="error_refered_by" >Enter Referred by</div>
+<label>Referred by:</label> <input type="text" name="refered_by" id="refered_by" >
+<div class="small">(repeat customer; referral by previous customer; BBB; Google Search; Yelp, HOA/Management recommendation; Golden Gate Mother's Group; Google Company post board; etc - PLEASE BE SPECIFIC)</div></li>
+
+<li>
+<div class="error" id="error_moving_date_1" >Enter Preferred moving date</div>
+<label>Preferred moving date:</label> <input type="text" name="moving_date_1" id="moving_date_1" ></li>
+<li>
+<div class="error" id="error_moving_date_2" >Enter Alternate moving date</div>
+<label>Alternate moving date:</label> <input type="text" name="moving_date_2" id="moving_date_2" ></li>
+
+<li>
+<div class="error" id="error_moving_from" >Enter Moving out of</div>
+<label>Moving out of :</label> <input type="text" name="moving_from" id="moving_from"" >
+<div class="small">(I.E: 1 BR Apt; 1 BR Loft; 2 BR 1 story house; 4 BR 2 story house; 3 BR + Den 3 story house; Load or unload of a rental truck, pod or trailer; Move on Premises; Storage unit)</div></li>
+<li>
+<div class="error" id="error_moving_to" >Enter Moving into</div>
+<label>Moving into  :</label> <input type="text" name="moving_to" id="moving_to" >
+<div class="small">(I.E: same as above)</div></li>
+</ul>
+</fieldset>
+
+<fieldset>
+<legend><h1>2) Exact Origin and Destination addresses <span class="legend-small">(we will review both addresses online for parking difficulty)</span></h1></legend>
+<ul>
+<li>
+<div class="error" id="error_origin" >Enter Origin</div>
+<label>Origin:</label> <input type="text" name="origin" id="origin" ></li>
+<li>
+<div class="error" id="error_destintion" >Enter Destination</div>
+<label>Destination:</label>  <input type="text" name="destintion" id="destintion" >
+</li>
+<li>
+<div class="error" id="error_drop-off" >Enter Any additional pick-up</div>
+<label>Any additional pick-up's or drop-off's:</label>  <input type="text" name="drop-off" id="drop-off" >
+</li>
+</ul>
+</fieldset>
+
+<fieldset>
+<legend><h1>3) Information about "Origin" and "Destination" addresses</h1></legend>
+
+<fieldset>
+<legend><b>"At ORIGIN"</b></legend>
+<ul>
+<li><label>Approximate square footage:</label> <input type="text" name="or_square_footge" id="" ></li>
+<li>
+<label>Number of flights from parked truck to front door:</label>  <input type="text" name="or_flights" id="" >
+<div class="small">(1 flight is equal to 15-18 steps)</div>
+</li>
+<li>
+<label>Any interior flights within your residence:</label>  <input type="text" name="or_interior_flights" id="" >
+<div class="small">(I.E: a Loft or a 2 story house would have 1 interior flight)</div>
+</li>
+<li><label>Elevator access:</label> yes<input type="radio" name="or_elevetor_access" value="yes"  /> no<input type="radio" name="or_elevetor_access" value="no" /></li>
+<li><label>Exclusive:</label> yes<input type="radio" name="or_exclusive" value="yes"  /> no<input type="radio" name="or_exclusive" value="no" /></li>
+<li><label>Size of elevator cab (sm; md; lg):</label> <input type="text" name="or_elevetor_size" id="" /></li>
+<li><label>Any long walks (long carries), to navigate from parked truck to front door of your residence:</label> <input type="text" name="or_long_walks" id="" /></li>
+<li><label>Where do trucks normally park:</label> <input type="text" name="or_truck_park" id="" ></li>
+
+
+
+</ul>
+</fieldset>
+<br />
+<fieldset>
+<legend><b>"At DESTINTION"</b></legend>
+<ul>
+<li><label>Approximate square footage:</label> <input type="text" name="dest_square_footge" id="" /></li>
+<li>
+<label>Number of flights from parked truck to front door:</label>  <input type="text" name="dest_flights" id="" />
+<div class="small">(1 flight is equal to 15-18 steps)</div>
+</li>
+<li>
+<label>Any interior flights within your residence:</label>  <input type="text" name="dest_interior_flights" id="" />
+<div class="small">(I.E: a Loft or a 2 story house would have 1 interior flight)</div>
+</li>
+<li><label>Elevator access:</label> yes<input type="radio" name="dest_elevetor_access" value="yes"  /> no<input type="radio" name="dest_elevetor_access" value="no"  /></li>
+<li><label>Exclusive:</label> yes<input type="radio" name="dest_exclusive" value="yes"    /> no<input type="radio" name="dest_exclusive" value="no" /></li>
+<li><label>Size of elevator cab (sm; md; lg):</label> <input type="text" name="dest_elevetor_size" id="" /></li>
+<li><label>Any long walks (long carries), to navigate from parked truck to front door of your residence:</label> <input type="text" name="dest_long_walks" id="" /></li>
+<li><label>Where do trucks normally park:</label> <input type="text" name="dest_truck_park" id="" /></li>
+
+</ul>
+</fieldset>
+
+</fieldset>
+
+
+<fieldset>
+<legend><h1>4) Items to be moved</h1></legend>
+<ul>
+<li><label>All furniture goes? </label> yes<input type="radio" name="all_goes"  value="yes"  /> no<input type="radio" name="all_goes" value="no"  >
+
+<br />If no, please explain:<br /><textarea rows="5" cols="60" name="all_goes_explain" ></textarea> 
+</li>
+
+                      
+<li>
+<label>Boxes:</label>  <input type="text" name="boxes" id="" >
+<div class="small">(approx # 5-10; 11-20; 21-30; 31-40; 41-60; 61-80; etc)</div>
+</li>
+<li>
+<label>Are we moving your hanging clothes:</label>  yes<input type="radio" name="move_hanging" value="yes"   /> no<input type="radio" name="move_hanging" value="no" />
+</li>
+<li>
+<label>Will you need more than 10 wardrobes (garment boxes):</label>  yes<input type="radio" name="wardrobes"  value="yes"  /> no<input type="radio" name="wardrobes"  value="no" />
+</li>
+<li>
+<label>Are we moving smaller misc items :</label>  yes<input type="radio" name="misc"  value="yes"  /> no<input type="radio" name="misc" value="no" />
+<div class="small">(such as "lamps", "paintings", "mirrors", "plants", "electronics", "golf clubs", "bikes", "strollers", "computers", etc)</div>
+</li>
+<li>
+<label>Are we moving items from garage:</label>  yes<input type="radio" name="from_garage"  value="yes"  /> no<input type="radio" name="from_garage" value="no" />
+</li>
+<li>
+<label>Are we moving items from back yard:</label>  yes<input type="radio" name="back_yard" value="yes"  /> no<input type="radio" name="back_yard" value="no" />
+</li>
+<li>
+<label>Any other comments:</label> <br /><textarea name="other_comments" rows="5" cols="60"></textarea>
+</li>
+
+
+
+</ul>
+</fieldset>
+
+
+<fieldset>
+<legend><h1>5) Please include additional info you may consider important to your move</h1></legend>
+<ul>
+<li><label>Do you need packing services:  </label> yes<input type="radio" name="packing"  value="yes"  /> no<input type="radio" name="packing"  value="no" /></li>
+<li><label>All household goods or just packing service for breakables only:  </label> <input type="text" name="breakables" id="" ></li>
+<li><label>Any difficult or cumbersome items being moved :
+<br /><textarea name="cumbersome" rows="5" cols="60"></textarea>
+<div class="small">(pianos, murphy beds, canopy bed, platform bed, treadmill, oversized armoire, fire proof file cabinet, safe, grand daddy clock, large antiques, marble/granite table tops, water tank aquarium, pool tables, ping pong tables, work out machine, pin ball machine, etc)</div></li>
+<li><label>Did you experience any problems at your current residence during the move-in process: <br /><textarea name="problems" rows="5" cols="60"></textarea></li>
+<li><label>Any hoisting maneuvers required:  </label> yes<input type="radio" name="hoisting"  value="yes"  /> no<input type="radio" name="hoisting"  value="no" /></li>
+<li><label>Certificates of insurance requested in behalf of your HOA's:  </label> yes<input type="radio" name="hoa"  value="yes"  /> no<input type="radio" name="hoa"  value="no" /></li>
+<li><label>Will you be in Escrow shortly before your scheduled move date:  </label> yes<input type="radio" name="escrow"  value="yes"  /> no<input type="radio" name="escrow"  value="no" /></li>
+<li><label>Will contractors be doing any major work at destination prior to your move date:  </label> yes<input type="radio" name="contractors"  value="yes"  /> no<input type="radio" name="contractors"  value="no" /></li>
+<li><label>Are we unloading a rental truck:  </label> yes<input type="radio" name="rental_truck" value="yes"  /> no<input type="radio" name="rental_truck""   value="no" /></li>
+<li><label>What size is the truck:</label>  <input type="text" name="truck_size" id="" > </li>
+<li><label>The contents in the truck being unloaded are equivalent to what type/size of residence: </label>  <input type="text" name="residence_size" id="" > </li>
+<li><label>If moving into or out of storage, is your unit a drive-up ground level unit: </label>  <input type="text" name="ground_level" id="" > </li>
+<li><label>What is the size of the storage: </label>  <input type="text" name="stotage_size" id="" > </li>
+<li><label>Any additional info you may consider important: </label><br /><textarea name="additional_info" rows="9" cols="90"></textarea> </li>
+
+
+
+</ul>
+</fieldset>
+<br /><br />
+<div align="center">
+<div class="error" id="error_form_error">Check the form above for missing field(s)</div>
+<input type="submit" value="Get Your Quote" />
+</form>
+</div>
+<br /><br />
+<?
+}
+?>
+
+
+</td>
+
+								</tr>
+
+							</table>
+</div>
+									</td>
+
+								</tr>
+
+								<tr>
+
+									<td bgcolor="#625BC4">
+
+							<p align="center">
+
+							<img src="images/index_footer.gif" alt="footer" width="640" height="27" align="right"></td>
+
+								</tr>
+
+								</table>
+
+							</td>
+
+						</tr>
+
+					</table>
+
+					</td>
+
+                  </tr>
+
+                  <tr>
+
+                    <td valign="middle" align="left"><div align="center">
+
+                      <table border="0" cellpadding="5" cellspacing="5" style="border-collapse: collapse" width="100%" id="table5">
+
+						<tr>
+
+							<td>
+
+							<p align="justify">
+
+						<span class="style1" style="font-family:Arial, Helvetica, sans-serif">
+
+						<span class="style4">
+
+						Golden Bay Relocation LLC is a full service moving 
+
+                        
+
+                        company&nbsp;serving 
+
+                        
+
+                        the Greater San Francisco Bay Area. We are based in San Francisco and have 
+
+                        
+
+                        been performing professional moves since 1992 for both residential<span class="style9"> and </span> commercial customers. We also provide full 
+
+                        
+
+                        packing services a<span class="style9">long with </span>Pod, rental truck or container loading &amp; unloading. Contact us for an A+ rated moving experience. We 
+
+                        
+
+                        know that moving can be one of the most stressful times in your life.
+
+                        
+
+                        We make sure that you have one less thing to worry about. Your professional movers and packers in 
+
+                        
+
+                  the San Francisco Bay Area.</span></span></td>
+
+						</tr>
+
+						<tr>
+
+							<td>
+
+							<div align="center">
+
+								<table border="0" cellpadding="2" style="border-collapse: collapse" width="770" id="table8">
+
+									<tr>
+
+										<td width="135" align="center"><b>
+
+										<font size="1" face="Arial Unicode MS" color="#666666">
+
+										<a href="index.htm" style="text-decoration: none">
+
+										<font color="#666666">HOME</font></a></font></b></td>
+
+										<td width="135" align="center"><b>
+
+										<font size="1" face="Arial Unicode MS" color="#666666">
+
+										<a href="about.htm" style="text-decoration: none">
+
+										<font color="#666666">ABOUT US</font></a></font></b></td>
+
+										<td width="135" align="center"><b>
+
+										<font size="1" face="Arial Unicode MS" color="#666666">
+
+										<a href="rates.htm" style="text-decoration: none">
+
+										<font color="#666666">MOVING RATES</font></a></font></b></td>
+
+										<td width="135" align="center"><b>
+
+										<font size="1" face="Arial Unicode MS" color="#666666">
+
+										<a href="moveprep.htm" style="text-decoration: none">
+
+										<font color="#666666">MOVING PREP</font></a></font></b></td>
+
+										<td width="135" align="center"><b>
+
+										<font size="1" face="Arial Unicode MS" color="#666666">
+
+										<a href="getquote.htm" style="text-decoration: none">
+
+										<font color="#666666">GET A QUOTE</font></a></font></b></td>
+
+										<td width="136" align="center"><b>
+
+										<font size="1" face="Arial Unicode MS" color="#666666">
+
+										<a href="contact.htm" style="text-decoration: none">
+
+										<font color="#666666">CONTACT US</font></a></font></b></td>
+
+									</tr>
+
+								</table>
+
+							</div>
+
+							</td>
+
+						</tr>
+
+						</table>
+
+                      </div></td>
+
+                </tr>
+
+                  <tr>
+
+                    <td valign="middle" align="left"><hr color="#01BE00"></td>
+
+                </tr>
+
+                  <tr>
+
+                    <td valign="middle" align="left">
+
+					<div align="center">
+
+					<table border="0" cellpadding="2" style="border-collapse: collapse" width="90%" id="table3" cellspacing="4">
+
+						<tr>
+
+          <td>
+
+																	<a target="_blank" href="http://www.facebook.com/pages/Golden-Bay-Relocation/168813419801515?ref=hl">
+																	<img border="0" src="images/like_us_facebook1.png" width="129"></a></td>
+
+          <td><div align="center"><a href="http://sanfrancisco.citysearch.com/profile/905223/san_francisco_ca/golden_bay_relocation.html" target="_blank">
+
+			<img src="images/bestcitysearch.jpg" alt="yelp" width="85" height="35" border="0"></a></div></td>
+
+
+        				</tr>
+
+					</table>
+
+					</div>
+
+					</td>
+
+                </tr>
+
+                  <tr>
+
+                    <td valign="top" align="left"><div align="center">
+
+					<p align="center" class="MsoNormal style2"><span class="style5"><font face="Arial"><span class="style11">
+
+						<a title="Bay Area CA Moving Companies" href="/bay-area-movers.htm">Bay Area Movers</a>&nbsp; | &nbsp;
+						<a title="Burlingame Moving Companies" href="/burlingame-movers.htm">Burlingame Movers</a>&nbsp; | &nbsp;
+						<a title="Corte Madera Moving Companies" href="/corte-madera-movers.htm">Corte Madera Movers</a>&nbsp; | &nbsp;
+						<a title="Larkspur Moving Companies" href="/larkspur-movers.htm">Larkspur Movers</a>&nbsp; | &nbsp; 
+						<a title="Menlo Park Moving Companies" href="/menlo-park-movers.htm">Menlo Park Movers</a>&nbsp; | &nbsp;
+						<a title="Mill Valley Moving Companies" href="/mill-valley-movers.htm">Mill Valley Movers</a>&nbsp; | &nbsp;
+						<a title="Palo Alto Moving Companies" href="/palo-alto-movers.htm">Palo Alto Movers</a>&nbsp; | &nbsp;
+						<a title="Redwood City Moving Companies" href="/redwood-city-movers.htm">Redwood City Movers</a>&nbsp; &nbsp;
+						<a title="Industry Partners" href="/resources.htm">Resources</a>&nbsp; | &nbsp;						
+						<a title="San Francisco CA Moving Companies" href="http://www.goldenbayrelocation.com">San Francisco Movers</a>&nbsp; | &nbsp;
+						<a title="San Mateo Moving Companies" href="/san-mateo-movers.htm">San Mateo Movers</a>&nbsp; | &nbsp;						
+						<a title="San Rafael Moving Companies" href="/san-rafael-movers.htm">San Rafael Movers</a>&nbsp; | &nbsp;
+						<a title="Sausalito Moving Companies" href="/sausalito-movers.htm">Sausalito Movers</a>&nbsp; | &nbsp;
+						<a title="Tiburon Moving Companies" href="/tiburon-movers.htm">Tiburon Movers</a><br/>
+						<strong>Golden Bay Relocation LLC 2016</strong></span></font></font></span></span></p>
+                    </div></td>
+
+                  </tr>
+
+              </table></td>
+
+            </tr>
+
+          </table></td>
+
+        </tr>
+
+      </table>
+
+<p>&nbsp;</p>
+
