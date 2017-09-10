@@ -3,6 +3,7 @@
 
     var CONSTANTS = {
         FORM: 'js-form',
+        HOME_FORM: 'js-home-form',
         EMAIL_INPUT: 'js-email-validator',
         REQUIRED_CLASS: 'js-required',
         ERROR_FIELD: 'required-field',
@@ -17,6 +18,7 @@
         HIDDEN_CLASS: 'hidden',
         CATCHA : 'g-recaptcha',
         SERVICE_URL: '/services/quote.php'
+        SERVICE_HOME_URL: '/services/home.php'
     };
 
     var NAMES = {
@@ -48,6 +50,7 @@
     var formValidation = function() {
 
         var $formSelector,
+            $homeFormSelector,
             $formContainer,
             $submittedSelector,
             $emailSelector,
@@ -111,6 +114,48 @@
                 $buttonSelector.style.disabled = true;
                 params = JSON.stringify(params);
                 postData(CONSTANTS.SERVICE_URL, postSuccess, postFail, params, true);
+            }
+        };
+
+        var checkHomeForm = function(event) {
+            event.preventDefault();
+            var firstItem = true,
+                anyError = true;
+
+            _.each($requiredSelector, function($input) {
+                if ($input.value != '') {
+                    $input.classList.remove(CONSTANTS.ERROR_FIELD);
+                }
+                else {
+                    $input.classList.add(CONSTANTS.ERROR_FIELD);
+
+                    if (firstItem) {
+                        $input.focus();
+                        firstItem = false;
+                    }
+
+                    anyError = false;
+                }
+            });
+
+             if (!emailValidate($emailSelector) && anyError) {
+
+                var params = {
+                    fullName: $fullName.value,
+                    email: $email.value,
+                    contactNumber: $contactNumber.value,
+                    moveDate: $moveDate.value,
+                    alternateMoveDate: $alternateMoveDate.value,
+                    originAddress: $originAddress.value,
+                    destinationAddress: $destinationAddress.value,
+                    kindOfResidence: $kindOfResidence.value,
+                    anythingRelevant: $anythingRelevant.value
+                };
+
+                $buttonSelector.style.disabled = true;
+                params = JSON.stringify(params);
+
+                postData(CONSTANTS.SERVICE_HOME_URL, postSuccess, postFail, params, true);
             }
         };
 
@@ -251,16 +296,29 @@
 
         var data = function() {
             $formSelector = document.getElementsByClassName(CONSTANTS.FORM)[0];
+            $homeFormSelector = document.getElementsByClassName(CONSTANTS.FORM_SELECTOR)[0];
             $submittedSelector = document.getElementsByClassName(CONSTANTS.SUBMITTED)[0];
-            $requiredSelector = $formSelector.getElementsByClassName(CONSTANTS.REQUIRED_CLASS);
-            $emailSelector = $formSelector.getElementsByClassName(CONSTANTS.EMAIL_INPUT)[0];
-            $capcha = $formSelector.getElementsByClassName(CONSTANTS.CATCHA)[0];
-            $capchaError = $formSelector.getElementsByClassName(CONSTANTS.CAPTCHA_ERROR)[0];
             $formContainer = document.getElementsByClassName(CONSTANTS.FORM_SELECTOR)[0];
-            $buttonSelector = $formSelector.getElementsByClassName(CONSTANTS.BUTTON_SELECTOR)[0];
-            $capLetter = $formSelector.getElementsByClassName(CONSTANTS.CAP_LETTER);
-            $capFirstLetter = $formSelector.getElementsByClassName(CONSTANTS.CAP_FIRST_LETTER);
-            $numbers = $formSelector.getElementsByClassName(CONSTANTS.NUMBERS);
+
+            if($formSelector) {
+                $requiredSelector = $formSelector.getElementsByClassName(CONSTANTS.REQUIRED_CLASS);
+                $emailSelector = $formSelector.getElementsByClassName(CONSTANTS.EMAIL_INPUT)[0];
+                $capcha = $formSelector.getElementsByClassName(CONSTANTS.CATCHA)[0];
+                $capchaError = $formSelector.getElementsByClassName(CONSTANTS.CAPTCHA_ERROR)[0];
+                $buttonSelector = $formSelector.getElementsByClassName(CONSTANTS.BUTTON_SELECTOR)[0];
+                $capLetter = $formSelector.getElementsByClassName(CONSTANTS.CAP_LETTER);
+                $capFirstLetter = $formSelector.getElementsByClassName(CONSTANTS.CAP_FIRST_LETTER);
+                $numbers = $formSelector.getElementsByClassName(CONSTANTS.NUMBERS);
+            }
+
+            if($homeFormSelector) {
+                $capLetter = $homeFormSelector.getElementsByClassName(CONSTANTS.CAP_LETTER);
+                $requiredSelector = $homeFormSelector.getElementsByClassName(CONSTANTS.REQUIRED_CLASS);
+                $numbers = $homeFormSelector.getElementsByClassName(CONSTANTS.NUMBERS);
+                $emailSelector = $homeFormSelector.getElementsByClassName(CONSTANTS.EMAIL_INPUT)[0];
+                $capFirstLetter = $homeFormSelector.getElementsByClassName(CONSTANTS.CAP_FIRST_LETTER);
+                $buttonSelector = $formSelector.getElementsByClassName(CONSTANTS.BUTTON_SELECTOR)[0];
+            }
 
             // NAMES
             $fullName = document.getElementsByName(NAMES.fullName)[0];
@@ -290,7 +348,16 @@
         };
 
         var event = function() {
-            $formSelector.addEventListener('submit', checkForm);
+
+            if ($formSelector) {
+                 $formSelector.addEventListener('submit', checkForm);
+            }
+
+            if ($homeFormSelector) {
+                debugger
+                 $homeFormSelector.addEventListener('submit', checkHomeForm);
+            }
+
             $emailSelector.addEventListener('change', function() {
                 emailValidate($emailSelector);
             });
