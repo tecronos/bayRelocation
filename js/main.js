@@ -17,6 +17,7 @@
         SHOW_CLASS: 'show',
         HIDDEN_CLASS: 'hidden',
         CATCHA : 'g-recaptcha',
+        RECAPTCHA_SELECTOR: 'js-recaptcha',
         SERVICE_URL: '/services/quote.php'
         SERVICE_HOME_URL: '/services/home.php'
     };
@@ -44,7 +45,8 @@
         packedPrior: 'packedPrior',
         packYourBreakables: 'packYourBreakables',
         cumbersomeItems: 'cumbersomeItems',
-        anythingRelevant: 'anythingRelevant'
+        anythingRelevant: 'anythingRelevant',
+        recaptcha: 'recaptcha'
     };
 
     var formValidation = function() {
@@ -60,6 +62,7 @@
             $capFirstLetter,
             $capLetter,
             $numbers,
+            $recaptchaSelector,
             $capcha;
 
         var checkForm = function(event) {
@@ -108,7 +111,8 @@
                     packedPrior: $packedPrior.value,
                     packYourBreakables: $packYourBreakables.value,
                     cumbersomeItems: $cumbersomeItems.value,
-                    anythingRelevant: $anythingRelevant.value
+                    anythingRelevant: $anythingRelevant.value,
+                    recaptcha: $recaptcha
                 };
 
                 $buttonSelector.style.disabled = true;
@@ -149,7 +153,8 @@
                     originAddress: $originAddress.value,
                     destinationAddress: $destinationAddress.value,
                     kindOfResidence: $kindOfResidence.value,
-                    anythingRelevant: $anythingRelevant.value
+                    anythingRelevant: $anythingRelevant.value,
+                    recaptcha: $recaptcha
                 };
 
                 $buttonSelector.style.disabled = true;
@@ -241,6 +246,8 @@
 
             if (googleCaptchaResponse) {
                 $capchaError.classList.remove(CONSTANTS.SHOW_CLASS);
+                $recaptchaSelector.value = grecaptcha.getResponse()
+
             }
             else {
                 $capchaError.classList.add(CONSTANTS.SHOW_CLASS);
@@ -299,6 +306,7 @@
             $homeFormSelector = document.getElementsByClassName(CONSTANTS.FORM_SELECTOR)[0];
             $submittedSelector = document.getElementsByClassName(CONSTANTS.SUBMITTED)[0];
             $formContainer = document.getElementsByClassName(CONSTANTS.FORM_SELECTOR)[0];
+            $recaptchaSelector = document.getElementsByClassName(CONSTANTS.RECAPTCHA_SELECTOR)[0];
 
             if($formSelector) {
                 $requiredSelector = $formSelector.getElementsByClassName(CONSTANTS.REQUIRED_CLASS);
@@ -324,7 +332,7 @@
             $fullName = document.getElementsByName(NAMES.fullName)[0];
             $findOutUs = document.getElementsByName(NAMES.findOutUs)[0];
             $email = document.getElementsByName(NAMES.email)[0];
-            $contactNumber = document.getElementsByName('contactNumber')[0];
+            $contactNumber = document.getElementsByName(contactNumber)[0];
             $moveDate = document.getElementsByName(NAMES.moveDate)[0];
             $alternateMoveDate = document.getElementsByName(NAMES.alternateMoveDate)[0];
             $originAddress = document.getElementsByName(NAMES.originAddress)[0];
@@ -345,6 +353,7 @@
             $cumbersomeItems = document.getElementsByName(NAMES.cumbersomeItems)[0];
             $anythingRelevant = document.getElementsByName(NAMES.anythingRelevant)[0];
             $AnyIssue = document.getElementsByName(NAMES.AnyIssue)[0];
+            $recapcha = document.getElementsByName(NAMES.recapcha)[0];
         };
 
         var event = function() {
